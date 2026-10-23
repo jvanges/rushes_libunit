@@ -1,0 +1,55 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: mmichele <mmichele@student.s19.be>         +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2026/10/24 01:13:27 by mmichele          #+#    #+#              #
+#    Updated: 2026/10/24 01:38:11 by mmichele         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+CC		= cc
+FLGS	= -Wall -Wextra -Werror
+
+NAME	= tests
+BLDD	= build
+LIBD	= ../framework
+
+SRCS	= main.c \
+			strlen/00_launcher.c strlen/01_basic_test.c strlen/02_null_test.c strlen/03_bigger_str_test.c
+OBJS	= $(patsubst %.c, $(BLDD)/%.o, $(SRCS))
+INCS	= -I . -I $(LIBD)
+LNKS	= -L $(LIBD)
+LIBS	= -lunit
+DEPS	= $(OBJS:.o=.d)
+
+.PHONY: clean fclean re norm lib
+
+all: lib $(NAME)
+
+lib:
+	$(MAKE) -C $(LIBD) --no-print-directory
+
+$(NAME): $(OBJS)
+	$(CC) $(FLGS) $(FLGS) $^ -o $@ $(INCS) $(LNKS) $(LIBS)
+	@ ./$@
+
+$(BLDD)/%.o: %.c
+	@ mkdir -p $(@D)
+	$(CC) $(FLGS) -MMD -c $< -o $@ $(INCS)
+
+-include $(DEPS)
+
+clean:
+	rm -rf $(BLDD)
+
+fclean: clean
+	rm -rf $(NAME)
+	$(MAKE) -C $(LIBD) $@
+
+re: fclean all
+
+norm:
+	norminette *.c *.h

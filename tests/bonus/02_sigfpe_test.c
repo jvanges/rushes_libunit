@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   04_sigbus_test.c                                   :+:      :+:    :+:   */
+/*   02_sigfpe_test.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmichele <mmichele@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/24 11:55:03 by mmichele          #+#    #+#             */
-/*   Updated: 2026/10/24 12:02:06 by mmichele         ###   ########.fr       */
+/*   Updated: 2026/10/24 21:37:13 by mmichele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tests_libunit.h"
+#include "tests_bonus.h"
 
-int	sigbus_test(void)
+int	sigfpe_test(void)
 {
-	raise(SIGBUS);
+	raise(SIGFPE);
 	return (-1);
 }

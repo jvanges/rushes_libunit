@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   03_sigsegv_test.c                                  :+:      :+:    :+:   */
+/*   01_ok_test.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmichele <mmichele@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/24 11:55:03 by mmichele          #+#    #+#             */
-/*   Updated: 2026/10/24 12:02:09 by mmichele         ###   ########.fr       */
+/*   Updated: 2026/10/24 21:11:46 by mmichele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tests_libunit.h"
+#include "tests_mandatory.h"
 
-int	sigsegv_test(void)
+int	ok_test(void)
 {
-	raise(SIGSEGV);
-	return (-1);
+	return (0);
 }

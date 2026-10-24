@@ -6,14 +6,13 @@
 /*   By: mmichele <mmichele@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/24 02:05:14 by mmichele          #+#    #+#             */
-/*   Updated: 2026/10/24 15:21:41 by mmichele         ###   ########.fr       */
+/*   Updated: 2026/10/24 20:11:04 by mmichele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libunit.h"
 
-#include <stdlib.h>
-#include <unistd.h>
+#include <stdlib.h>	// malloc free
 
 #include "libft.h"	// ft_printf
 

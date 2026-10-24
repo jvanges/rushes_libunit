@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   02_ko_test.c                                       :+:      :+:    :+:   */
+/*   04_sigbus_test.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmichele <mmichele@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/24 11:55:03 by mmichele          #+#    #+#             */
-/*   Updated: 2026/10/24 11:55:31 by mmichele         ###   ########.fr       */
+/*   Updated: 2026/10/24 21:36:50 by mmichele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tests_libunit.h"
+#include "tests_mandatory.h"
 
-int	ko_test(void)
+int	sigbus_test(void)
 {
+	raise(SIGBUS);
 	return (-1);
 }

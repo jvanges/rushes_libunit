@@ -6,15 +6,15 @@
 /*   By: mmichele <mmichele@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/24 05:56:33 by mmichele          #+#    #+#             */
-/*   Updated: 2026/10/24 11:36:55 by mmichele         ###   ########.fr       */
+/*   Updated: 2026/10/24 21:08:59 by mmichele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libunit.h"
+#ifndef BONUS
 
-#include "libft.h"		// ft_printf
-
-#include <signal.h>		// SIGSEGV, SIGBUS
+# include "libunit.h"
+# include "libft.h"		// ft_printf
+# include <signal.h>	// SIGSEGV, SIGBUS
 
 int	print_res(int status)
 {
@@ -32,3 +32,5 @@ void	print_sig(int sig)
 	else if (sig == SIGBUS)
 		ft_printf("[SIGBUS]\n");
 }
+
+#endif

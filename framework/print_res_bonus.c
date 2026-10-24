@@ -6,31 +6,40 @@
 /*   By: mmichele <mmichele@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/24 05:55:01 by mmichele          #+#    #+#             */
-/*   Updated: 2026/10/24 11:37:01 by mmichele         ###   ########.fr       */
+/*   Updated: 2026/10/24 21:39:35 by mmichele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libunit.h"
+#ifdef BONUS
 
-#include "libft.h"		// ft_printf
+# include "libunit.h"
+# include "libft.h"		// ft_aec_print
+# include <signal.h>	// SIGSEGV, SIGBUS
 
-#include <signal.h>		// SIGSEGV, SIGBUS
-
-// TODO Handle colors in output
-int	handle_res_print(int status)
+int	print_res(int status)
 {
 	if (status == 0)
-		ft_printf("[OK]\n");
+		ft_aec_print((t_aec){NORMAL, GREEN, DEFAULT}, "[OK]", 1);
 	else
-		ft_printf("[KO]\n");
+		ft_aec_print((t_aec){NORMAL, RED, DEFAULT}, "[KO]", 1);
 	return (-!!status);
 }
 
-// TODO Handle colors in output
 void	print_sig(int sig)
 {
 	if (sig == SIGSEGV)
-		ft_printf("[SIGSEGV]\n");
+		ft_aec_print((t_aec){NORMAL, YELLOW, DEFAULT}, "[SIGSEGV]", 1);
 	else if (sig == SIGBUS)
-		ft_printf("[SIGBUS]\n");
+		ft_aec_print((t_aec){NORMAL, YELLOW, DEFAULT}, "[SIGBUS]", 1);
+	else if (sig == SIGABRT)
+		ft_aec_print((t_aec){NORMAL, YELLOW, DEFAULT}, "[SIGABRT]", 1);
+	else if (sig == SIGFPE)
+		ft_aec_print((t_aec){NORMAL, YELLOW, DEFAULT}, "[SIGFPE]", 1);
+	else if (sig == SIGPIPE)
+		ft_aec_print((t_aec){NORMAL, YELLOW, DEFAULT}, "[SIGPIPE]", 1);
+	else if (sig == SIGILL)
+		ft_aec_print((t_aec){NORMAL, YELLOW, DEFAULT}, "[SIGILL]", 1);
+
 }
+
+#endif

@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   00_launcher.c                                      :+:      :+:    :+:   */
+/*   tests_mandatory.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmichele <mmichele@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/24 11:46:45 by mmichele          #+#    #+#             */
-/*   Updated: 2026/10/24 12:03:33 by mmichele         ###   ########.fr       */
+/*   Created: 2026/10/24 11:47:42 by mmichele          #+#    #+#             */
+/*   Updated: 2026/10/24 21:25:32 by mmichele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tests_libunit.h"
+#ifndef TESTS_MANDATORY_H
+# define TESTS_MANDATORY_H
 
-#include "libunit.h"
+# include "signal.h"	// raise, SIGSEGV, SIGBUS
 
-int	libunit_launcher(void)
-{
-	t_unit_test	*testlist;
+int	mandatory_launcher(void);
 
-	testlist = 0;
-	load_test(&testlist, "OK", &ok_test);
-	load_test(&testlist, "KO", &ko_test);
-	load_test(&testlist, "SIGSEGV", &sigsegv_test);
-	load_test(&testlist, "SIGBUS", &sigbus_test);
-	return (launch_tests(&testlist, "LIBUNIT"));
-}
+int	ok_test(void);
+int	ko_test(void);
+int	sigsegv_test(void);
+int	sigbus_test(void);
+
+#endif // TESTS_MANDATORY_H

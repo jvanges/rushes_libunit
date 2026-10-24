@@ -1,25 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tests_libunit.h                                    :+:      :+:    :+:   */
+/*   03_sigpipe_test.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmichele <mmichele@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/24 11:47:42 by mmichele          #+#    #+#             */
-/*   Updated: 2026/10/24 12:01:43 by mmichele         ###   ########.fr       */
+/*   Created: 2026/10/24 11:55:03 by mmichele          #+#    #+#             */
+/*   Updated: 2026/10/24 21:37:05 by mmichele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TESTS_LIBUNIT_H
-# define TESTS_LIBUNIT_H
+#include "tests_bonus.h"
 
-# include "signal.h"	// raise, SIGSEGV, SIGBUS
-
-int	libunit_launcher(void);
-
-int	ok_test(void);
-int	ko_test(void);
-int	sigsegv_test(void);
-int	sigbus_test(void);
-
-#endif // TESTS_LIBUNIT_H
+int	sigpipe_test(void)
+{
+	raise(SIGPIPE);
+	return (-1);
+}

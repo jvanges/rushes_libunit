@@ -6,7 +6,7 @@
 /*   By: mmichele <mmichele@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/24 02:05:14 by mmichele          #+#    #+#             */
-/*   Updated: 2026/10/24 06:21:46 by mmichele         ###   ########.fr       */
+/*   Updated: 2026/10/24 15:21:41 by mmichele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	load_test(t_unit_test **ut, const char *title, int (*func)(void))
 	}
 }
 
-int	launch_tests(t_unit_test **ut)
+int	launch_tests(t_unit_test **ut, const char *func_name)
 {
 	t_unit_test		*curr;
 	unsigned int	total;
@@ -79,13 +79,13 @@ int	launch_tests(t_unit_test **ut)
 	passed = 0;
 	while (curr)
 	{
-		ft_printf("\t%s: ", curr->title);
+		ft_printf("%s: %s: ", func_name, curr->title);
 		passed += (exec_func(curr) == 0);
 		total++;
 		curr = curr->next;
 	}
 	unit_test_free(ut);
-	ft_printf("%d / %d\n", passed, total);
+	ft_printf("%d/%d tests checked\n\n", passed, total);
 	if (total != passed)
 		return (-1);
 	return (0);

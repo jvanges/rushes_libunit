@@ -6,11 +6,13 @@
 /*   By: mmichele <mmichele@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/23 21:46:37 by mmichele          #+#    #+#             */
-/*   Updated: 2026/10/24 06:26:02 by mmichele         ###   ########.fr       */
+/*   Updated: 2026/10/24 11:56:20 by mmichele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libunit/tests_libunit.h"
+
 int	main(void)
 {
-	return (0);
+	libunit_launcher();
 }

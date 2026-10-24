@@ -6,7 +6,7 @@
 /*   By: mmichele <mmichele@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 17:52:09 by mmichele          #+#    #+#             */
-/*   Updated: 2025/11/08 21:44:56 by mmichele         ###   ########.fr       */
+/*   Updated: 2026/10/24 14:46:45 by mmichele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	mat_imul_vec(const t_mat m, t_vec *v);
 float	ft_abs(float value);
 t_bool	fts_abs(float *value);
 t_luint	ft_fact(const t_uint n);
-float	ft_pow(const float base, int exp);
+double	ft_pow(const double base, int exp);
 int		ft_round(float value);
 float	ft_pythagoras(const float a, const float b);
 float	ft_sqrt(const float value);

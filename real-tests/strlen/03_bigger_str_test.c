@@ -6,11 +6,19 @@
 /*   By: mmichele <mmichele@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/23 22:03:44 by mmichele          #+#    #+#             */
-/*   Updated: 2026/10/24 01:45:53 by mmichele         ###   ########.fr       */
+/*   Updated: 2026/10/24 11:35:36 by mmichele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "tests_strlen.h"
+
 int	bigger_str_test(void)
 {
-	return (-1);
+	char	str[1000];
+
+	str[999] = '\0';
+	memset(str, 'a', 999);
+	if (strlen(str) != ft_strlen(str))
+		return (-1);
+	return (0);
 }

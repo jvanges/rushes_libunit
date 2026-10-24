@@ -6,7 +6,7 @@
 #    By: mmichele <mmichele@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/24 01:13:27 by mmichele          #+#    #+#              #
-#    Updated: 2026/10/24 06:25:32 by mmichele         ###   ########.fr        #
+#    Updated: 2026/10/24 14:55:02 by mmichele         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,16 @@ LIBD	= ../framework
 LIBFT	= ../libft
 
 SRCS	= main.c \
-			strlen/00_launcher.c strlen/01_basic_test.c strlen/02_null_test.c strlen/03_bigger_str_test.c
+		strlen/00_launcher.c \
+		strlen/01_basic_test.c \
+		strlen/02_null_test.c \
+		strlen/03_bigger_str_test.c \
+		atoi/00_launcher.c \
+		atoi/01_basic_test.c \
+		atoi/02_whitespace_test.c \
+		atoi/03_invalid_characters_test.c \
+		atoi/04_limits_test.c \
+		atoi/05_null_test.c
 OBJS	= $(patsubst %.c, $(BLDD)/%.o, $(SRCS))
 INCS	= -I . -I $(LIBD) -I $(LIBFT)
 LNKS	= -L $(LIBD) -L $(LIBFT)

@@ -6,7 +6,7 @@
 /*   By: mmichele <mmichele@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/24 05:55:01 by mmichele          #+#    #+#             */
-/*   Updated: 2026/10/24 06:16:34 by mmichele         ###   ########.fr       */
+/*   Updated: 2026/10/24 11:37:01 by mmichele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@
 int	handle_res_print(int status)
 {
 	if (status == 0)
-		ft_printf("OK\n");
+		ft_printf("[OK]\n");
 	else
-		ft_printf("KO\n");
+		ft_printf("[KO]\n");
 	return (-!!status);
 }
 
@@ -30,7 +30,7 @@ int	handle_res_print(int status)
 void	print_sig(int sig)
 {
 	if (sig == SIGSEGV)
-		ft_printf("SIGSEGV\n");
+		ft_printf("[SIGSEGV]\n");
 	else if (sig == SIGBUS)
-		ft_printf("SIGBUS\n");
+		ft_printf("[SIGBUS]\n");
 }

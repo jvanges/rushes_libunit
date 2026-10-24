@@ -6,7 +6,7 @@
 /*   By: mmichele <mmichele@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/23 21:04:34 by mmichele          #+#    #+#             */
-/*   Updated: 2026/10/24 06:16:40 by mmichele         ###   ########.fr       */
+/*   Updated: 2026/10/24 11:27:37 by mmichele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ typedef struct s_unit_test
 
 /* unit_test.c */
 void		load_test(t_unit_test **ut, const char *title, int (*func)(void));
-int			launch_tests(t_unit_test **ut);
+int			launch_tests(t_unit_test **ut, const char *func_name);
 
 /* exec_test.c */
 int			exec_func(t_unit_test *ut);

@@ -6,36 +6,45 @@
 #    By: mmichele <mmichele@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/25 20:49:07 by mmichele          #+#    #+#              #
-#    Updated: 2026/10/24 01:32:19 by mmichele         ###   ########.fr        #
+#    Updated: 2026/10/24 06:20:26 by mmichele         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC		= cc
-FLGS	= -Wall -Wextra -Werror
+FLGS	= -Wall -Wextra -Werror -g
 
-NAME	= libunit.a
 BLDD	= build
+LIBD	= ../libft
 
-SRCS	= unit_test.c
-OBJS	= $(patsubst %.c, $(BLDD)/%.o, $(SRCS))
-INCS	= -I .
+INCS	= -I . -I $(LIBD)
+LNKS	= -L $(LIBD)
+LIBS	= -lunit -lft
 DEPS	= $(OBJS:.o=.d)
 
-BONUS_SRCS 	= 
-BONUS_OBJS	= $(patsubst %.c, $(BLDD)/%.o, $(BONUS_SRCS))
+# Mandatory 
 
-.PHONY: clean fclean re norm
+NAME	= libunit.a
+SRCS	= unit_test.c exec_test.c print_res.c
+OBJS	= $(patsubst %.c, $(BLDD)/%.o, $(SRCS))
 
-all: $(NAME)
+all: lib $(NAME)
 
 $(NAME): $(OBJS)
 	ar rcs $@ $^
 
-bonus: $(OBJS) $(BONUS_OBJS)
-	ar rcs $(NAME) $^
+# Bonus
 
-san: FLGS += -g -fsanitize=address,leak,undefined
-san: bonus
+BONUS_NAME	= libunit_bonus.a
+BONUS_SRCS 	= unit_test.c exec_test.c print_res_bonus.c
+BONUS_OBJS	= $(patsubst %.c, $(BLDD)/%.o, $(BONUS_SRCS))
+
+bonus: lib $(BONUS_NAME)
+
+$(BONUS_NAME): $(BONUS_OBJS)
+	ar rcs $@ $^
+	cp $@ $(NAME)
+
+# Common targets
 
 $(BLDD)/%.o: %.c
 	@ mkdir -p $(@D)
@@ -48,9 +57,14 @@ clean:
 
 fclean: clean
 	rm -rf $(NAME)
+	rm -rf $(BONUS_NAME)
 
 re: fclean all
 
-norm:
-	norminette *.c *.h
+lib:
+	@ $(MAKE) -C $(LIBD) --no-print-directory
 
+norm:
+	norminette
+
+.PHONY: clean fclean re norm lib bonus

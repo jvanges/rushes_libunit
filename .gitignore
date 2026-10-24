@@ -1,2 +1,6 @@
-libunit.a
+*.a
+*.o
+*.d
 build
+tests/tests
+real-tests/tests

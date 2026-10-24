@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmichele <mmichele@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/23 21:46:13 by mmichele          #+#    #+#             */
-/*   Updated: 2026/10/24 01:37:31 by mmichele         ###   ########.fr       */
+/*   Created: 2026/10/24 02:05:14 by mmichele          #+#    #+#             */
+/*   Updated: 2026/10/24 06:21:46 by mmichele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,11 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+#include "libft.h"	// ft_printf
+
 static t_unit_test	*unit_test_last(t_unit_test *ut)
 {
-	while (ut->next)
+	while (ut && ut->next)
 		ut = ut->next;
 	return (ut);
 }
@@ -27,6 +29,8 @@ static void	unit_test_free(t_unit_test **ut)
 	t_unit_test	*curr;
 	t_unit_test	*next;
 
+	if (!ut)
+		return ;
 	curr = *ut;
 	while (curr)
 	{
@@ -34,7 +38,7 @@ static void	unit_test_free(t_unit_test **ut)
 		free(curr);
 		curr = next;
 	}
-	*ut = 0;
+	*ut = NULL;
 }
 
 void	load_test(t_unit_test **ut, const char *title, int (*func)(void))
@@ -42,17 +46,24 @@ void	load_test(t_unit_test **ut, const char *title, int (*func)(void))
 	t_unit_test	*new;
 	t_unit_test	*last;
 
+	if (!ut || !title || !func)
+		return ;
 	new = malloc(sizeof(t_unit_test));
 	if (!new)
 	{
-		write(0, "Malloc failed\n", 15);
+		ft_dprintf(2, "malloc failed\n");
 		return ;
 	}
 	new->title = title;
 	new->func = func;
-	new->next = 0;
- 	last = unit_test_last(*ut);
-	last->next = new;
+	new->next = NULL;
+	if (!*ut)
+		*ut = new;
+	else
+	{
+		last = unit_test_last(*ut);
+		last->next = new;
+	}
 }
 
 int	launch_tests(t_unit_test **ut)
@@ -61,17 +72,20 @@ int	launch_tests(t_unit_test **ut)
 	unsigned int	total;
 	unsigned int	passed;
 
+	if (!ut)
+		return (-1);
 	curr = *ut;
 	total = 0;
 	passed = 0;
-	while (curr->next)
+	while (curr)
 	{
-		// TODO should be executed by a child (fork)
-		passed += (curr->func() == 0);
+		ft_printf("\t%s: ", curr->title);
+		passed += (exec_func(curr) == 0);
 		total++;
 		curr = curr->next;
 	}
 	unit_test_free(ut);
+	ft_printf("%d / %d\n", passed, total);
 	if (total != passed)
 		return (-1);
 	return (0);

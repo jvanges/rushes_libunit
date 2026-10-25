@@ -6,7 +6,7 @@
 /*   By: mmichele <mmichele@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/24 11:47:42 by mmichele          #+#    #+#             */
-/*   Updated: 2026/10/25 14:50:25 by mmichele         ###   ########.fr       */
+/*   Updated: 2026/10/25 21:20:58 by mmichele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ int	real_sigfpe_test(void);
 int	real_sigpipe_test(void);
 int	real_sigill_test(void);
 int	real_timeout_test(void);
+int	stdout_test(void);
 
 #endif // TESTS_BONUS_H

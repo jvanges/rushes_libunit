@@ -6,7 +6,7 @@
 /*   By: mmichele <mmichele@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/24 11:46:45 by mmichele          #+#    #+#             */
-/*   Updated: 2026/10/25 20:35:17 by mmichele         ###   ########.fr       */
+/*   Updated: 2026/10/25 21:22:35 by mmichele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ int	bonus_launcher(void)
 	load_test(&testlist, "REAL SIGPIPE", &real_sigpipe_test);
 	load_test(&testlist, "REAL SIGILL", &real_sigill_test);
 	load_test(&testlist, "REAL TIMEOUT", &real_timeout_test);
+	load_test(&testlist, "INVALID STDOUT", &stdout_test);
 	return (launch_tests(&testlist, "LIBUNIT_BONUS"));
 }

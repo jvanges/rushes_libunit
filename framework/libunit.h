@@ -30,6 +30,7 @@ int			exec_func(t_unit_test *ut);
 /* print_res.c print_res_bonus.c */
 int			print_res(int status);
 void		print_sig(int sig);
+int			print_timeout(void);
 
 /* child_proc.c child_proc_bonus.c */
 int			child_proc(t_unit_test *ut);

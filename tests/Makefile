@@ -6,7 +6,7 @@
 #    By: mmichele <mmichele@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/24 01:13:27 by mmichele          #+#    #+#              #
-#    Updated: 2026/10/25 12:59:13 by mmichele         ###   ########.fr        #
+#    Updated: 2026/10/25 14:51:13 by mmichele         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,7 +53,8 @@ BONUS_SRCS 	= main_bonus.c \
 			bonus/01_sigabrt_test.c \
 			bonus/02_sigfpe_test.c \
 			bonus/03_sigpipe_test.c \
-			bonus/04_sigill_test.c
+			bonus/04_sigill_test.c \
+			bonus/05_timeout_test.c
 BONUS_OBJS	= $(patsubst %.c, $(BLDD)/%.o, $(BONUS_SRCS))
 BONUS_DEPS	= $(BONUS_OBJS:.o=.d)
 

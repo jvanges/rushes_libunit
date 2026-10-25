@@ -35,4 +35,10 @@ void	print_sig(int sig)
 		ft_printf("ERROR");
 }
 
+int	print_timeout(void)
+{
+	ft_printf("[TIMEOUT]\n");
+	return (-1);
+}
+
 #endif

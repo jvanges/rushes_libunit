@@ -6,7 +6,7 @@
 /*   By: mmichele <mmichele@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/24 04:20:00 by mmichele          #+#    #+#             */
-/*   Updated: 2026/10/25 12:40:55 by mmichele         ###   ########.fr       */
+/*   Updated: 2026/10/25 14:59:50 by mmichele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <sys/types.h>	// pid_t
 #include <stdlib.h>		// exit
 #include <sys/wait.h>	// waitpid
+#include <signal.h>		// SIGALRM
 
 #include "libft.h"		// ft_dprintf
 
@@ -35,7 +36,10 @@ int	exec_func(t_unit_test *ut)
 	else
 	{
 		if (waitpid(pid, &status, 0) == -1)
+		{
 			ft_dprintf(2, "waitpid failed\n");
+			return (-1);
+		}
 	}
 	if (WIFEXITED(status))
 		return (print_res(WEXITSTATUS(status)));

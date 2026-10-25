@@ -6,7 +6,7 @@
 /*   By: mmichele <mmichele@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/25 02:05:54 by mmichele          #+#    #+#             */
-/*   Updated: 2026/10/25 13:58:08 by mmichele         ###   ########.fr       */
+/*   Updated: 2026/10/25 14:59:31 by mmichele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
-# include <unistd.h>
+# include <unistd.h>	// alarm
 
 static int	output_is_identical(FILE *output)
 {
@@ -51,6 +51,7 @@ int	child_proc(t_unit_test *ut)
 	int		status;
 	int		same_output;
 
+	alarm(5);
 	output = tmpfile();
 	if (!output)
 		return (1);

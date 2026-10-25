@@ -6,7 +6,7 @@
 /*   By: mmichele <mmichele@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/24 02:05:14 by mmichele          #+#    #+#             */
-/*   Updated: 2026/10/24 20:11:04 by mmichele         ###   ########.fr       */
+/*   Updated: 2026/10/25 20:19:07 by mmichele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int	launch_tests(t_unit_test **ut, const char *func_name)
 	while (curr)
 	{
 		ft_printf("%s: %s: ", func_name, curr->title);
-		passed += (exec_func(curr) == 0);
+		passed += (exec_func(curr, func_name) == 0);
 		total++;
 		curr = curr->next;
 	}

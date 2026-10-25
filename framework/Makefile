@@ -36,7 +36,7 @@ $(NAME): $(OBJS)
 
 # Bonus
 BONUS_NAME	= libunit_bonus.a
-BONUS_SRCS 	= unit_test.c exec_test.c print_res_bonus.c child_proc_bonus.c
+BONUS_SRCS 	= unit_test.c exec_test_bonus.c print_res_bonus.c child_proc_bonus.c
 BONUS_OBJS	= $(patsubst %.c, $(BLDD)/%.o, $(BONUS_SRCS))
 BONUS_DEPS	= $(BONUS_OBJS:.o=.d)
 

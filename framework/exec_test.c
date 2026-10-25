@@ -6,7 +6,7 @@
 /*   By: mmichele <mmichele@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/24 04:20:00 by mmichele          #+#    #+#             */
-/*   Updated: 2026/10/25 14:59:50 by mmichele         ###   ########.fr       */
+/*   Updated: 2026/10/25 20:18:46 by mmichele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 #include "libft.h"		// ft_dprintf
 
-int	exec_func(t_unit_test *ut)
+int	exec_func(t_unit_test *ut, const char *func_name)
 {
 	pid_t	pid;
 	int		status;
@@ -32,7 +32,7 @@ int	exec_func(t_unit_test *ut)
 		return (-1);
 	}
 	else if (pid == 0)
-		exit(child_proc(ut));
+		exit(child_proc(ut, func_name));
 	else
 	{
 		if (waitpid(pid, &status, 0) == -1)

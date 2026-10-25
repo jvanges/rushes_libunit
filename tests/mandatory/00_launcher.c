@@ -6,7 +6,7 @@
 /*   By: mmichele <mmichele@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/24 11:46:45 by mmichele          #+#    #+#             */
-/*   Updated: 2026/10/24 21:11:18 by mmichele         ###   ########.fr       */
+/*   Updated: 2026/10/25 20:35:23 by mmichele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,5 @@ int	mandatory_launcher(void)
 	load_test(&testlist, "SIGBUS", &sigbus_test);
 	load_test(&testlist, "REAL SIGSEGV", &real_sigsegv_test);
 	load_test(&testlist, "REAL SIGBUS", &real_sigbus_test);
-	return (launch_tests(&testlist, "LIBUNIT MANDATORY"));
+	return (launch_tests(&testlist, "LIBUNIT_MANDATORY"));
 }

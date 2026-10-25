@@ -6,7 +6,7 @@
 /*   By: mmichele <mmichele@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/23 21:04:34 by mmichele          #+#    #+#             */
-/*   Updated: 2026/10/25 12:41:24 by mmichele         ###   ########.fr       */
+/*   Updated: 2026/10/25 20:19:21 by mmichele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void		load_test(t_unit_test **ut, const char *title, int (*func)(void));
 int			launch_tests(t_unit_test **ut, const char *func_name);
 
 /* exec_test.c */
-int			exec_func(t_unit_test *ut);
+int			exec_func(t_unit_test *ut, const char *func_name);
 
 /* print_res.c print_res_bonus.c */
 int			print_res(int status);
@@ -33,6 +33,6 @@ void		print_sig(int sig);
 int			print_timeout(void);
 
 /* child_proc.c child_proc_bonus.c */
-int			child_proc(t_unit_test *ut);
+int			child_proc(t_unit_test *ut, const char *func_name);
 
 #endif // LIBUNIT_H

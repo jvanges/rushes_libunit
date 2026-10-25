@@ -6,7 +6,7 @@
 /*   By: mmichele <mmichele@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/25 02:05:54 by mmichele          #+#    #+#             */
-/*   Updated: 2026/10/25 17:25:13 by mmichele         ###   ########.fr       */
+/*   Updated: 2026/10/25 20:27:13 by mmichele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,13 @@ static int	output_is_identical(FILE *output)
 	return (result);
 }
 
-int	child_proc(t_unit_test *ut)
+int	child_proc(t_unit_test *ut, const char *func_name)
 {
 	FILE	*output;
 	int		status;
 	int		same_output;
 
+	(void)func_name;
 	alarm(5);
 	output = tmpfile();
 	if (!output)

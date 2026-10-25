@@ -6,7 +6,7 @@
 /*   By: mmichele <mmichele@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/24 05:56:33 by mmichele          #+#    #+#             */
-/*   Updated: 2026/10/25 13:59:11 by mmichele         ###   ########.fr       */
+/*   Updated: 2026/10/25 20:19:41 by mmichele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,6 @@ void	print_sig(int sig)
 		ft_printf("[SIGBUS]\n");
 	else
 		ft_printf("ERROR");
-}
-
-int	print_timeout(void)
-{
-	ft_printf("[TIMEOUT]\n");
-	return (-1);
 }
 
 #endif

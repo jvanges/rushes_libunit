@@ -6,7 +6,7 @@
 #    By: mmichele <mmichele@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/24 01:13:27 by mmichele          #+#    #+#              #
-#    Updated: 2026/10/25 14:51:13 by mmichele         ###   ########.fr        #
+#    Updated: 2026/10/25 20:17:33 by mmichele         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -91,6 +91,7 @@ clean:
 
 fclean: clean
 	rm -rf $(NAME)
+	rm -rf $(BONUS_NAME)
 	@ $(MAKE) -C $(LIBD) fclean --no-print-directory
 
 re: fclean all

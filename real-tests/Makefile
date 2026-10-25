@@ -6,7 +6,7 @@
 #    By: mmichele <mmichele@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/24 01:13:27 by mmichele          #+#    #+#              #
-#    Updated: 2026/10/25 14:26:48 by mmichele         ###   ########.fr        #
+#    Updated: 2026/10/25 20:17:41 by mmichele         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,12 +28,19 @@ SRCS	= main.c \
 		strlen/01_basic_test.c \
 		strlen/02_null_test.c \
 		strlen/03_bigger_str_test.c \
+		strlen/04_empty_test.c \
+		strlen/05_embedded_null_test.c \
+		strlen/06_special_characters_test.c \
+		strlen/07_multiple_strings_test.c \
 		atoi/00_launcher.c \
 		atoi/01_basic_test.c \
 		atoi/02_whitespace_test.c \
 		atoi/03_invalid_characters_test.c \
 		atoi/04_limits_test.c \
-		atoi/05_null_test.c
+		atoi/05_null_test.c \
+		atoi/06_trailing_whitespace_test.c \
+		atoi/07_sign_position_test.c \
+		atoi/08_zero_values_test.c
 OBJS	= $(patsubst %.c, $(BLDD)/%.o, $(SRCS))
 DEPS	= $(OBJS:.o=.d)
 
@@ -53,12 +60,19 @@ BONUS_SRCS 	= main_bonus.c \
 			strlen/01_basic_test.c \
 			strlen/02_null_test.c \
 			strlen/03_bigger_str_test.c \
+			strlen/04_empty_test.c \
+			strlen/05_embedded_null_test.c \
+			strlen/06_special_characters_test.c \
+			strlen/07_multiple_strings_test.c \
 			atoi/00_launcher.c \
 			atoi/01_basic_test.c \
 			atoi/02_whitespace_test.c \
 			atoi/03_invalid_characters_test.c \
 			atoi/04_limits_test.c \
 			atoi/05_null_test.c \
+			atoi/06_trailing_whitespace_test.c \
+			atoi/07_sign_position_test.c \
+			atoi/08_zero_values_test.c \
 			printf/00_launcher.c \
 			printf/01_basic_test.c \
 			printf/02_string_test.c \
@@ -102,6 +116,7 @@ clean:
 
 fclean: clean
 	rm -rf $(NAME)
+	rm -rf $(BONUS_NAME)
 	@ $(MAKE) -C $(LIBD) fclean --no-print-directory
 
 re: fclean all

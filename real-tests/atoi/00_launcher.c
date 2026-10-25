@@ -25,5 +25,9 @@ int	atoi_launcher(void)
 		&atoi_invalid_characters_test);
 	load_test(&testlist, "Integer limits test", &atoi_limits_test);
 	load_test(&testlist, "Integer null pointer test", &atoi_null_test);
+	load_test(&testlist, "Trailing whitespace test",
+		&atoi_trailing_whitespace_test);
+	load_test(&testlist, "Sign position test", &atoi_sign_position_test);
+	load_test(&testlist, "Zero values test", &atoi_zero_values_test);
 	return (launch_tests(&testlist, "ATOI"));
 }

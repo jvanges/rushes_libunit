@@ -22,5 +22,9 @@ int	strlen_launcher(void)
 	load_test(&testlist, "Basic test", &basic_test);
 	load_test(&testlist, "NULL test", &null_test);
 	load_test(&testlist, "Bigger string test", &bigger_str_test);
+	load_test(&testlist, "Empty string test", &empty_test);
+	load_test(&testlist, "Embedded NULL test", &embedded_null_test);
+	load_test(&testlist, "Special characters test", &special_characters_test);
+	load_test(&testlist, "Multiple strings test", &multiple_strings_test);
 	return (launch_tests(&testlist, "STRLEN"));
 }

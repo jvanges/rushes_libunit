@@ -23,5 +23,8 @@ int	atoi_whitespace_test(void);
 int	atoi_invalid_characters_test(void);
 int	atoi_limits_test(void);
 int	atoi_null_test(void);
+int	atoi_trailing_whitespace_test(void);
+int	atoi_sign_position_test(void);
+int	atoi_zero_values_test(void);
 
 #endif

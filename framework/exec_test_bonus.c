@@ -17,7 +17,7 @@
 # include <unistd.h>	// fork
 # include <sys/types.h>	// pid_t
 # include <stdlib.h>	// exit
-# include <sys/wait.h>	// waitpid
+# include <sys/wait.h>	// wait
 # include <signal.h>	// SIGALRM
 # include <sys/time.h>	// gettimeofday
 # include <time.h>		// localtime
@@ -59,11 +59,11 @@ static void	file_logger(t_unit_test *ut, const char *func_name,
 	close(fd);
 }
 
-static int	wait_for_child(pid_t pid, int *status)
+static int	wait_for_child(int *status)
 {
-	if (waitpid(pid, status, 0) == -1)
+	if (wait(status) == -1)
 	{
-		ft_dprintf(2, "waitpid failed\n");
+		ft_dprintf(2, "wait failed\n");
 		return (-1);
 	}
 	return (0);
@@ -85,7 +85,7 @@ int	exec_func(t_unit_test *ut, const char *func_name)
 	}
 	else if (pid == 0)
 		exit(child_proc(ut, func_name));
-	else if (wait_for_child(pid, &status) == -1)
+	else if (wait_for_child(&status) == -1)
 		return (-1);
 	gettimeofday(&stop, NULL);
 	file_logger(ut, func_name, start, stop);

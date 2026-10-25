@@ -15,7 +15,7 @@
 #include <unistd.h>		// fork
 #include <sys/types.h>	// pid_t
 #include <stdlib.h>		// exit
-#include <sys/wait.h>	// waitpid
+#include <sys/wait.h>	// wait
 #include <signal.h>		// SIGALRM
 
 #include "libft.h"		// ft_dprintf
@@ -35,9 +35,9 @@ int	exec_func(t_unit_test *ut, const char *func_name)
 		exit(child_proc(ut, func_name));
 	else
 	{
-		if (waitpid(pid, &status, 0) == -1)
+		if (wait(&status) == -1)
 		{
-			ft_dprintf(2, "waitpid failed\n");
+			ft_dprintf(2, "wait failed\n");
 			return (-1);
 		}
 	}

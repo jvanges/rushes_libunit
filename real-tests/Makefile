@@ -6,7 +6,7 @@
 #    By: mmichele <mmichele@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/24 01:13:27 by mmichele          #+#    #+#              #
-#    Updated: 2026/10/24 21:04:36 by mmichele         ###   ########.fr        #
+#    Updated: 2026/10/25 14:26:48 by mmichele         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ LIBFT	= ../libft
 
 INCS	= -I . -I $(LIBD) -I $(LIBFT)
 LNKS	= -L $(LIBD) -L $(LIBFT)
-LIBS	= -lunit -lft
+LIBS	= -lunit -lft -lm
 
 # Mandatory
 NAME	= tests
@@ -48,7 +48,33 @@ $(NAME): $(OBJS)
 
 # Bonus
 BONUS_NAME	= tests_bonus
-BONUS_SRCS 	= $(SRCS)
+BONUS_SRCS 	= main_bonus.c \
+			strlen/00_launcher.c \
+			strlen/01_basic_test.c \
+			strlen/02_null_test.c \
+			strlen/03_bigger_str_test.c \
+			atoi/00_launcher.c \
+			atoi/01_basic_test.c \
+			atoi/02_whitespace_test.c \
+			atoi/03_invalid_characters_test.c \
+			atoi/04_limits_test.c \
+			atoi/05_null_test.c \
+			printf/00_launcher.c \
+			printf/01_basic_test.c \
+			printf/02_string_test.c \
+			printf/03_integer_test.c \
+			printf/04_unsigned_test.c \
+			printf/05_pointer_test.c \
+			printf/06_hex_lower_test.c \
+			printf/07_hex_upper_test.c \
+			printf/08_percent_test.c \
+			printf/09_width_test.c \
+			printf/10_string_precision_test.c \
+			printf/11_integer_precision_test.c \
+			printf/12_sign_test.c \
+			printf/13_alternative_form_test.c \
+			printf/14_zero_padding_test.c \
+			printf/15_left_alignment_test.c
 BONUS_OBJS	= $(patsubst %.c, $(BLDD)/%.o, $(BONUS_SRCS))
 BONUS_DEPS	= $(BONUS_OBJS:.o=.d)
 
@@ -76,6 +102,7 @@ clean:
 
 fclean: clean
 	rm -rf $(NAME)
+	@ $(MAKE) -C $(LIBD) fclean --no-print-directory
 
 re: fclean all
 
@@ -83,4 +110,3 @@ test: all
 	@ ./$(NAME)
 
 .PHONY: clean fclean re norm lib lib-bonus san test
-

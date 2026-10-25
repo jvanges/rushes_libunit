@@ -6,7 +6,7 @@
 /*   By: mmichele <mmichele@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/23 21:04:34 by mmichele          #+#    #+#             */
-/*   Updated: 2026/10/24 20:43:14 by mmichele         ###   ########.fr       */
+/*   Updated: 2026/10/25 12:41:24 by mmichele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,8 @@ int			exec_func(t_unit_test *ut);
 /* print_res.c print_res_bonus.c */
 int			print_res(int status);
 void		print_sig(int sig);
+
+/* child_proc.c child_proc_bonus.c */
+int			child_proc(t_unit_test *ut);
 
 #endif // LIBUNIT_H

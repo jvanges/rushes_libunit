@@ -6,7 +6,7 @@
 /*   By: mmichele <mmichele@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/24 05:55:01 by mmichele          #+#    #+#             */
-/*   Updated: 2026/10/24 21:39:35 by mmichele         ###   ########.fr       */
+/*   Updated: 2026/10/25 14:00:03 by mmichele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 # include "libunit.h"
 # include "libft.h"		// ft_aec_print
-# include <signal.h>	// SIGSEGV, SIGBUS
+# include <signal.h>
 
 int	print_res(int status)
 {
@@ -39,7 +39,8 @@ void	print_sig(int sig)
 		ft_aec_print((t_aec){NORMAL, YELLOW, DEFAULT}, "[SIGPIPE]", 1);
 	else if (sig == SIGILL)
 		ft_aec_print((t_aec){NORMAL, YELLOW, DEFAULT}, "[SIGILL]", 1);
-
+	else
+		ft_printf("ERROR");
 }
 
 #endif

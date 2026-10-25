@@ -6,7 +6,7 @@
 /*   By: mmichele <mmichele@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/24 04:20:00 by mmichele          #+#    #+#             */
-/*   Updated: 2026/10/24 06:00:20 by mmichele         ###   ########.fr       */
+/*   Updated: 2026/10/25 12:40:55 by mmichele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	exec_func(t_unit_test *ut)
 		return (-1);
 	}
 	else if (pid == 0)
-		exit(ut->func());
+		exit(child_proc(ut));
 	else
 	{
 		if (waitpid(pid, &status, 0) == -1)

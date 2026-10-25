@@ -6,7 +6,7 @@
 #    By: mmichele <mmichele@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/24 01:13:27 by mmichele          #+#    #+#              #
-#    Updated: 2026/10/24 21:30:59 by mmichele         ###   ########.fr        #
+#    Updated: 2026/10/25 12:59:13 by mmichele         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,13 @@ $(NAME): $(OBJS)
 
 # Bonus
 BONUS_NAME	= tests_bonus
-BONUS_SRCS 	= bonus/00_launcher.c \
+BONUS_SRCS 	= main_bonus.c \
+			mandatory/00_launcher.c \
+			mandatory/01_ok_test.c \
+			mandatory/02_ko_test.c \
+			mandatory/03_sigsegv_test.c \
+			mandatory/04_sigbus_test.c \
+			bonus/00_launcher.c \
 			bonus/01_sigabrt_test.c \
 			bonus/02_sigfpe_test.c \
 			bonus/03_sigpipe_test.c \
@@ -58,7 +64,7 @@ lib-bonus:
 bonus: FLGS += -D BONUS
 bonus: lib-bonus $(BONUS_NAME)
 
-$(BONUS_NAME): $(OBJS) $(BONUS_OBJS)
+$(BONUS_NAME): $(BONUS_OBJS)
 	$(CC) $(FLGS) $^ -o $@ $(INCS) $(LNKS) $(LIBS)
 	@ cp $@ $(NAME)
 
@@ -75,6 +81,7 @@ clean:
 
 fclean: clean
 	rm -rf $(NAME)
+	@ $(MAKE) -C $(LIBD) fclean --no-print-directory
 
 re: fclean all
 
@@ -82,4 +89,3 @@ test: all
 	@ ./$(NAME)
 
 .PHONY: clean fclean re norm lib lib-bonus san test
-

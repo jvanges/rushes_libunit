@@ -22,5 +22,10 @@ int	sigfpe_test(void);
 int	sigpipe_test(void);
 int	sigill_test(void);
 int	timeout_test(void);
+int	real_sigabrt_test(void);
+int	real_sigfpe_test(void);
+int	real_sigpipe_test(void);
+int	real_sigill_test(void);
+int	real_timeout_test(void);
 
 #endif // TESTS_BONUS_H

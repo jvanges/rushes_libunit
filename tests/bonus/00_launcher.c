@@ -24,5 +24,10 @@ int	bonus_launcher(void)
 	load_test(&testlist, "SIGPIPE", &sigpipe_test);
 	load_test(&testlist, "SIGILL", &sigill_test);
 	load_test(&testlist, "TIMEOUT", &timeout_test);
+	load_test(&testlist, "REAL SIGABRT", &real_sigabrt_test);
+	load_test(&testlist, "REAL SIGFPE", &real_sigfpe_test);
+	load_test(&testlist, "REAL SIGPIPE", &real_sigpipe_test);
+	load_test(&testlist, "REAL SIGILL", &real_sigill_test);
+	load_test(&testlist, "REAL TIMEOUT", &real_timeout_test);
 	return (launch_tests(&testlist, "LIBUNIT BONUS"));
 }

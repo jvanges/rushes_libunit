@@ -6,13 +6,14 @@
 /*   By: mmichele <mmichele@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/25 14:50:08 by mmichele          #+#    #+#             */
-/*   Updated: 2026/10/25 15:00:02 by mmichele         ###   ########.fr       */
+/*   Updated: 2026/10/25 16:50:43 by mmichele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "tests_bonus.h"
+
 int	timeout_test(void)
 {
-	while (1)
-		;
-	return (0);
+	raise(SIGALRM);
+	return (-1);
 }

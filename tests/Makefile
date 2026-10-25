@@ -28,7 +28,9 @@ SRCS	= main.c \
 		mandatory/01_ok_test.c \
 		mandatory/02_ko_test.c \
 		mandatory/03_sigsegv_test.c \
-		mandatory/04_sigbus_test.c
+		mandatory/04_sigbus_test.c \
+		mandatory/05_real_sigsegv_test.c \
+		mandatory/06_real_sigbus_test.c
 OBJS	= $(patsubst %.c, $(BLDD)/%.o, $(SRCS))
 DEPS	= $(OBJS:.o=.d)
 
@@ -49,12 +51,19 @@ BONUS_SRCS 	= main_bonus.c \
 			mandatory/02_ko_test.c \
 			mandatory/03_sigsegv_test.c \
 			mandatory/04_sigbus_test.c \
+			mandatory/05_real_sigsegv_test.c \
+			mandatory/06_real_sigbus_test.c \
 			bonus/00_launcher.c \
 			bonus/01_sigabrt_test.c \
 			bonus/02_sigfpe_test.c \
 			bonus/03_sigpipe_test.c \
 			bonus/04_sigill_test.c \
-			bonus/05_timeout_test.c
+			bonus/05_timeout_test.c \
+			bonus/06_real_sigabrt_test.c \
+			bonus/07_real_sigfpe_test.c \
+			bonus/08_real_sigpipe_test.c \
+			bonus/09_real_sigill_test.c \
+			bonus/10_real_timeout_test.c
 BONUS_OBJS	= $(patsubst %.c, $(BLDD)/%.o, $(BONUS_SRCS))
 BONUS_DEPS	= $(BONUS_OBJS:.o=.d)
 

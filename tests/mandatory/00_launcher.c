@@ -23,5 +23,7 @@ int	mandatory_launcher(void)
 	load_test(&testlist, "KO", &ko_test);
 	load_test(&testlist, "SIGSEGV", &sigsegv_test);
 	load_test(&testlist, "SIGBUS", &sigbus_test);
+	load_test(&testlist, "REAL SIGSEGV", &real_sigsegv_test);
+	load_test(&testlist, "REAL SIGBUS", &real_sigbus_test);
 	return (launch_tests(&testlist, "LIBUNIT MANDATORY"));
 }

@@ -6,16 +6,16 @@
 /*   By: mmichele <mmichele@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/25 02:05:54 by mmichele          #+#    #+#             */
-/*   Updated: 2026/10/25 14:59:31 by mmichele         ###   ########.fr       */
+/*   Updated: 2026/10/25 17:25:13 by mmichele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifdef BONUS
 
 # include "libunit.h"
-# include <stdio.h>
-# include <stdlib.h>
-# include <string.h>
+# include <stdio.h>		// FILE tmpfile fclose fseek fflush fread
+# include <stdlib.h>	// malloc free
+# include <string.h>	// memcmp
 # include <unistd.h>	// alarm
 
 static int	output_is_identical(FILE *output)

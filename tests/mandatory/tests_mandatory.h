@@ -21,5 +21,7 @@ int	ok_test(void);
 int	ko_test(void);
 int	sigsegv_test(void);
 int	sigbus_test(void);
+int	real_sigsegv_test(void);
+int	real_sigbus_test(void);
 
 #endif // TESTS_MANDATORY_H

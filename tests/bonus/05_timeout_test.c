@@ -12,6 +12,8 @@
 
 #include "tests_bonus.h"
 
+/* Simule un timeout via raise(SIGALRM) : c'est le signal que le noyau
+** enverrait réellement via alarm(5) si le test bouclait trop longtemps. */
 int	timeout_test(void)
 {
 	raise(SIGALRM);

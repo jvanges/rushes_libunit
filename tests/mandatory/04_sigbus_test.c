@@ -12,6 +12,7 @@
 
 #include "tests_mandatory.h"
 
+/* Même principe que sigsegv_test : le processus s'envoie SIGBUS. */
 int	sigbus_test(void)
 {
 	raise(SIGBUS);

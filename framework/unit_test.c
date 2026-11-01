@@ -16,6 +16,7 @@
 
 #include "libft.h"	// ft_printf
 
+/* Renvoie le dernier maillon de la liste (pour ajouter en fin). */
 static t_unit_test	*unit_test_last(t_unit_test *ut)
 {
 	while (ut && ut->next)
@@ -23,6 +24,8 @@ static t_unit_test	*unit_test_last(t_unit_test *ut)
 	return (ut);
 }
 
+/* Libère toute la liste et remet le pointeur de tête à NULL.
+** Appelée par launch_tests dans le PARENT une fois les tests exécutés. */
 static void	unit_test_free(t_unit_test **ut)
 {
 	t_unit_test	*curr;
@@ -40,6 +43,9 @@ static void	unit_test_free(t_unit_test **ut)
 	*ut = NULL;
 }
 
+/* Ajoute un test EN FIN de liste : les tests s'exécutent dans
+** l'ordre de chargement. En cas de paramètre NULL ou d'échec de
+** malloc, le test est ignoré (message sur stderr) sans tout casser. */
 void	load_test(t_unit_test **ut, const char *title, int (*func)(void))
 {
 	t_unit_test	*new;
@@ -65,6 +71,10 @@ void	load_test(t_unit_test **ut, const char *title, int (*func)(void))
 	}
 }
 
+/* Cœur de la boucle : pour chaque test, on affiche son nom puis on
+** l'exécute dans un enfant via exec_func. Seul un retour == 0 compte
+** comme réussi. La liste est libérée avant le résumé.
+** Retour : 0 si tout a passé, -1 sinon (propagé par le main). */
 int	launch_tests(t_unit_test **ut, const char *func_name)
 {
 	t_unit_test		*curr;

@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/* #ifdef BONUS : ce fichier n'existe qu'en compilation -D BONUS
+** (il remplace child_proc.c, qui devient alors un objet vide). */
 #ifdef BONUS
 
 # include "libunit.h"
@@ -18,6 +20,11 @@
 # include <string.h>	// memcmp
 # include <unistd.h>	// alarm
 
+/* Vérifie que la sortie capturée est composée de DEUX MOITIÉS IDENTIQUES.
+** Contexte : les tests printf écrivent d'abord la sortie du vrai printf,
+** puis celle de ft_printf -> [sortie printf][sortie ft_printf].
+** Si les deux moitiés sont égales, les sorties correspondent.
+** Garde-fous : fflush (stdout bufferisé), longueur paire, lectures ok. */
 static int	output_is_identical(FILE *output)
 {
 	long			length;
@@ -45,6 +52,12 @@ static int	output_is_identical(FILE *output)
 	return (result);
 }
 
+/* Version bonus de l'enfant :
+** 1. alarm(5) : si le test boucle, le noyau tuera l'enfant par SIGALRM
+**    -> le parent affichera [TIMEOUT]. L'alarme est ici, PAS dans le parent.
+** 2. tmpfile + dup2 : stdout du test est redirigé vers un fichier temporaire.
+** 3. Après le test, on compare les deux moitiés de la sortie capturée.
+** Échec si le test renvoie != 0 OU si les sorties diffèrent. */
 int	child_proc(t_unit_test *ut, const char *func_name)
 {
 	FILE	*output;

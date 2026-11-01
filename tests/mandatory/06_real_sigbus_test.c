@@ -15,6 +15,14 @@
 #include <sys/mman.h>
 #include <unistd.h>
 
+/* Provoque un VRAI SIGBUS (contrairement à raise) :
+** - on crée un fichier d'1 SEUL octet (ftruncate)
+** - on le projette en mémoire sur 8192 octets (mmap réussit :
+**   le mapping est valide, arrondi à des pages entières)
+** - lire mapping[4096] touche une page du mapping SANS données
+**   derrière dans le fichier -> SIGBUS.
+** Différence avec SIGSEGV : celui-ci survient quand l'adresse est
+** HORS de tout mapping valide (ex. pointeur NULL). */
 int	real_sigbus_test(void)
 {
 	FILE			*file;

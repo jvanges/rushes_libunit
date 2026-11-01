@@ -14,6 +14,8 @@
 #include "atoi/tests_atoi.h"
 #include "printf/tests_printf.h"
 
+/* Lance chaque famille de tests. status |= (...) propage l'échec :
+** si un seul launcher renvoie != 0, main renvoie -1 (exit code 255). */
 int	main(void)
 {
 	int	status;

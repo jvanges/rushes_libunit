@@ -12,6 +12,9 @@
 
 #include "tests_strlen.h"
 
+/* strlen(NULL) est un comportement indéfini -> segfault.
+** Ce test est donc CENSÉ crasher : il démontre que le framework
+** rapporte [SIGSEGV] proprement au lieu de mourir lui-même. */
 int	null_test(void)
 {
 	const char	*ptr = NULL;

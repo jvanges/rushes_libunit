@@ -20,6 +20,20 @@
 
 #include "libft.h"		// ft_dprintf
 
+/* Exécute UN test dans un processus enfant, puis analyse sa mort.
+**
+** fork() :
+**   -1  -> échec, on abandonne ce test
+**    0  -> branche ENFANT : exécute le test, son retour devient le exit code
+**   >0  -> branche PARENT : wait() bloque jusqu'à la mort de l'enfant
+**
+** Analyse de status (rempli par wait) :
+**   WIFEXITED   -> l'enfant a fait exit() : WEXITSTATUS donne le code
+**                  (0 -> [OK], autre -> [KO])
+**   WIFSIGNALED -> l'enfant a été tué par un signal : WTERMSIG donne lequel
+**                  (SIGSEGV -> [SIGSEGV], SIGBUS -> [SIGBUS])
+**
+** Retour : 0 si le test a réussi, -1 dans tous les autres cas. */
 int	exec_func(t_unit_test *ut, const char *func_name)
 {
 	pid_t	pid;

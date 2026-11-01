@@ -14,6 +14,12 @@
 
 #include "unistd.h"
 
+/* Valide la vérification de stdout du bonus (invalidée volontairement).
+** En bonus, l'enfant redirige stdout vers un tmpfile et compare les
+** deux MOITIÉS de la sortie capturée. Ici on écrit "abc\0" puis "def\0"
+** (4 octets chacun) : les moitiés diffèrent -> KO attendu ("INVALID STDOUT").
+** Note : le test renvoie 0, c'est bien la comparaison de sortie qui le
+** fait échouer. */
 int	stdout_test(void)
 {
 	write(1, "abc", 4);

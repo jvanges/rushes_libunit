@@ -3,3 +3,6 @@
 *.d
 build
 *.log
+/tests/tests
+/real-tests/tests
+/real-tests/tests_bonus

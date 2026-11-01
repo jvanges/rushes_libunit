@@ -10,6 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/* #ifdef BONUS : remplace print_res.c en compilation -D BONUS.
+** ft_aec_print (extension de la libft) émet des codes ANSI de couleur :
+** OK vert, KO rouge, signaux jaunes, TIMEOUT magenta. */
 #ifdef BONUS
 
 # include "libunit.h"
@@ -25,6 +28,7 @@ int	print_res(int status)
 	return (-!!status);
 }
 
+/* SIGALRM affiché [TIMEOUT] : c'est l'alarm(5) posée dans l'enfant. */
 void	print_sig(int sig)
 {
 	if (sig == SIGSEGV)

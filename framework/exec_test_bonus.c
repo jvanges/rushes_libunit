@@ -23,6 +23,8 @@
 # include <time.h>		// localtime
 # include "libft.h"		// ft_dprintf
 
+/* Formate un horodatage lisible "AAAA-MM-JJ HH:MM:SS.µs" dans le log
+** via localtime (conversion epoch -> date locale). */
 static void	print_timestamp(int fd, const char *label, struct timeval stamp)
 {
 	struct tm	*date;
@@ -35,6 +37,9 @@ static void	print_timestamp(int fd, const char *label, struct timeval stamp)
 		date->tm_hour, date->tm_min, date->tm_sec, (int)stamp.tv_usec);
 }
 
+/* Écrit le résultat chronométré du test dans <func_name>.log.
+** O_APPEND : les exécutions s'accumulent d'un run à l'autre.
+** Durée = (différence de secondes * 1e6) + différence de microsecondes. */
 static void	file_logger(t_unit_test *ut, const char *func_name,
 	struct timeval start, struct timeval stop)
 {
@@ -69,6 +74,8 @@ static int	wait_for_child(int *status)
 	return (0);
 }
 
+/* Identique à la version mandatory (fork + wait + analyse de status),
+** avec en plus le chronométrage gettimeofday et l'écriture du log. */
 int	exec_func(t_unit_test *ut, const char *func_name)
 {
 	pid_t			pid;

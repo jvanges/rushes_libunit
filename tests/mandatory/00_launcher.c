@@ -14,6 +14,11 @@
 
 #include "libunit.h"
 
+/* Pattern imposé par le sujet : un launcher par famille de tests.
+** On charge les tests dans une liste chaînée (dans l'ordre d'exécution
+** voulu), puis on lance toute la suite d'un coup avec launch_tests.
+** Tous ces tests sont CENSÉS échouer sauf "OK" : ils servent à vérifier
+** que le framework rapporte bien chaque type de verdict. */
 int	mandatory_launcher(void)
 {
 	t_unit_test	*testlist;

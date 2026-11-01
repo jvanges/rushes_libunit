@@ -12,6 +12,9 @@
 
 #include "tests_mandatory.h"
 
+/* raise(SIGSEGV) : le processus s'envoie le signal à lui-même.
+** Mort "par signal" garantie : le parent prend le chemin WIFSIGNALED,
+** exactement comme pour un vrai crash. */
 int	sigsegv_test(void)
 {
 	raise(SIGSEGV);

@@ -12,6 +12,8 @@
 
 #include "tests_mandatory.h"
 
+/* Provoque un VRAI SIGSEGV en déréférençant un pointeur NULL.
+** "volatile" empêche le compilateur d'optimiser/supprimer l'accès. */
 int	real_sigsegv_test(void)
 {
 	volatile int	*ptr;
